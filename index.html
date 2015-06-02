@@ -10,8 +10,8 @@
     </header><!-- /header -->
     <main>
         <section class="calc">
-            <form action="index_submit" method="put" accept-charset="utf-8">
-                <input type="text" name="" value="0" placeholder=""><br>
+            <form action="index_submit" method="get" accept-charset="utf-8">
+                <input type="text" name="input-window" value="0" placeholder=""><br>
                 <input type="button" name="one" value="1">
                 <input type="button" name="two" value="2">
                 <input type="button" name="three" value="3"><br>
@@ -30,6 +30,32 @@
             </form>
         </section>
     </main>
-</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+<script>
+    $(document).ready(function(){
+        var currVal, newVal
+
+        var inputBox = $("input[name=input-window]")
+
+        inputBox.val(0)
+
+        $("input[name=three]").on("click", function(){
+            //alert($(this).attr("value"))
+            var btnInput = $(this).attr("value")
+            getInput(btnInput)
+        })
+
+        function getInput(btnVal){
+            alert("button clicked: " + btnVal)
+            //var inputWindow = $("input[name=input-window]")
+            //inputWindow.val() + inputWindow.val(btnVal)
+            currVal = inputBox.val()
+            alert("curr val: " + currVal)
+            newVal = currVal.concat(btnVal)
+            alert("new val: " + newVal)
+            inputBox.val(newVal)
+        }
+    })
+</script>
 </body>
 </html>
