@@ -45,28 +45,11 @@
         inputBox.val("")
 
         $("#calc-form").on("click", function(){
-            //alert($("input[type=button]:focus").val())
             var btnInput = $("input[type=button]:focus").val()
             getInput(btnInput)
         })
 
-
-        // $("input[name=three]").on("click", function(){
-        //     //alert($(this).attr("value"))
-        //     var btnInput = $(this).attr("value")
-        //     getInput(btnInput)
-        // })
-
         function getInput(btnVal){
-            //alert("button clicked: " + btnVal)
-            //var inputWindow = $("input[name=input-window]")
-            //inputWindow.val() + inputWindow.val(btnVal)
-            // displayVal = inputBox.val()
-            // funcVal = funcVal.concat(btnVal)
-            //alert("curr val: " + currVal)
-
-
-            //alert("new val: " + newVal)
             if (btnVal === "+"){
                 val1 = funcVal
                 displayVal = displayVal.concat(btnVal)
@@ -82,8 +65,6 @@
                 displayVal = displayVal.concat(btnVal)
                 funcVal = funcVal.concat(btnVal)
             }
-
-
 
             inputBox.val(displayVal)
         }
