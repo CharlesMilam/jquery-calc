@@ -10,7 +10,7 @@
     </header><!-- /header -->
     <main>
         <section class="calc">
-            <form action="index_submit" method="get" accept-charset="utf-8">
+            <form action="index_submit" method="get" accept-charset="utf-8" id="calc-form">
                 <input type="text" name="input-window" value="0" placeholder=""><br>
                 <input type="button" name="one" value="1">
                 <input type="button" name="two" value="2">
@@ -37,13 +37,20 @@
 
         var inputBox = $("input[name=input-window]")
 
-        inputBox.val(0)
+        inputBox.val("")
 
-        $("input[name=three]").on("click", function(){
-            //alert($(this).attr("value"))
-            var btnInput = $(this).attr("value")
+        $("#calc-form").on("click", function(){
+            alert($("input[type=button]:focus").val())
+            var btnInput = $("input[type=button]:focus").val()
             getInput(btnInput)
         })
+
+
+        // $("input[name=three]").on("click", function(){
+        //     //alert($(this).attr("value"))
+        //     var btnInput = $(this).attr("value")
+        //     getInput(btnInput)
+        // })
 
         function getInput(btnVal){
             alert("button clicked: " + btnVal)
