@@ -33,14 +33,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 <script>
     $(document).ready(function(){
-        var currVal, newVal
+        var displayVal = ""
+        var val1 = ""
+        var val2 = ""
+        var solv = ""
+        var funcVal = ""
+        var funcType = ""
 
         var inputBox = $("input[name=input-window]")
 
         inputBox.val("")
 
         $("#calc-form").on("click", function(){
-            alert($("input[type=button]:focus").val())
+            //alert($("input[type=button]:focus").val())
             var btnInput = $("input[type=button]:focus").val()
             getInput(btnInput)
         })
@@ -53,14 +58,40 @@
         // })
 
         function getInput(btnVal){
-            alert("button clicked: " + btnVal)
+            //alert("button clicked: " + btnVal)
             //var inputWindow = $("input[name=input-window]")
             //inputWindow.val() + inputWindow.val(btnVal)
-            currVal = inputBox.val()
-            alert("curr val: " + currVal)
-            newVal = currVal.concat(btnVal)
-            alert("new val: " + newVal)
-            inputBox.val(newVal)
+            // displayVal = inputBox.val()
+            // funcVal = funcVal.concat(btnVal)
+            //alert("curr val: " + currVal)
+
+
+            //alert("new val: " + newVal)
+            if (btnVal === "+"){
+                val1 = funcVal
+                displayVal = displayVal.concat(btnVal)
+                funcVal = ""
+                funcType = "add"
+            }
+            else if (btnVal === "="){
+                val2 = funcVal
+                solv = add(val1, val2)
+                displayVal = displayVal.concat("=" + solv)
+            }
+            else {
+                displayVal = displayVal.concat(btnVal)
+                funcVal = funcVal.concat(btnVal)
+            }
+
+
+
+            inputBox.val(displayVal)
+        }
+
+        function add(val1, val2){
+            console.log("val1: " + val1)
+            console.log("val2: " + val2)
+            return Number(val1) + Number(val2)
         }
     })
 </script>
