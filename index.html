@@ -27,6 +27,7 @@
                 <input type="button" name="multiply" value="*">
                 <input type="button" name="divide" value="/">
                 <input type="button" name="equals" value="=">
+                <input type="button" name="clear" value="CLR">
             </form>
         </section>
     </main>
@@ -95,6 +96,14 @@
                         break
                 }
             }
+            else if (btnVal === "CLR"){
+                displayVal = ""
+                val1 = ""
+                val2 = ""
+                solv = ""
+                funcVal = ""
+                funcType = ""
+            }
             else {
                 displayVal = displayVal.concat(btnVal)
                 funcVal = funcVal.concat(btnVal)
@@ -104,8 +113,6 @@
         }
 
         function add(val1, val2){
-            console.log("val1: " + val1)
-            console.log("val2: " + val2)
             return Number(val1) + Number(val2)
         }
 
