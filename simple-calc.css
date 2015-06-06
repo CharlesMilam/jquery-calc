@@ -1,4 +1,5 @@
 form {
+  font-family: 'Roboto', 'Droid', sans-serif;
   text-align: center;
 }
 header {
@@ -15,8 +16,7 @@ header {
   margin: 0 auto;
   padding-bottom: 20px;
 }
-.btnNum {
-    font-family: 'Roboto', 'Droid', sans-serif;
+.btn-num {
     font-size: 1.2rem;
     color: #212121;
     border: 1px solid #FF5722;
@@ -24,8 +24,7 @@ header {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     margin: 0.5rem;
 }
-.btnFunc{
-    font-family: 'Roboto', 'Droid', sans-serif;
+.btn-func{
     font-size: 1.2rem;
     font-weight: bold;
     border: 1px solid #FF5722;
@@ -34,20 +33,18 @@ header {
     margin: 0.5rem;
     width: 30px;
 }
-.btnClr{
-  font-family: 'Roboto', 'Droid', sans-serif;
+.btn-clr{
   font-size: 1.5rem;
   border: 1px solid #FF5722;
   border-radius: 0 1% 1% 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   margin-left: -6px;
 }
-.btnSpacer{
+.btn-spacer{
   margin: 0.5rem 1.2rem 0.5rem 0.5rem;
   visibility: hidden;
 }
-.inputWin{
-  font-family: 'Roboto', 'Droid', sans-serif;
+.input-win{
   font-size: 1.5rem;
   border: 1px solid #FF5722;
   border-radius: 1% 0 0 1%;
