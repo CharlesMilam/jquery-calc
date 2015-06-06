@@ -1,0 +1,43 @@
+form {
+  text-align: center;
+}
+header {
+  font-family: 'Roboto', 'Droid', sans-serif;
+  color: #212121;
+  text-align: center;
+}
+.calc-container{
+  background-color: #448AFF;
+  border: 1px solid #303F9F;
+  border-radius: 1%;
+  max-width: 50%;
+  margin: 0 auto;
+}
+.btnNum {
+    font-family: 'Roboto', 'Droid', sans-serif;
+    font-size: 1.2rem;
+    color: #212121;
+    border: 1px solid #303F9F;
+    border-radius: 15%;
+    margin: 0.5rem;
+}
+.btnClr{
+  font-family: 'Roboto', 'Droid', sans-serif;
+  font-size: 1.5rem;
+  border: 1px solid #303F9F;
+  border-radius: 0 1% 1% 0;
+  margin-left: -6px;
+}
+.btnSpacer{
+  visibility: hidden;
+}
+.inputWin{
+  font-family: 'Roboto', 'Droid', sans-serif;
+  font-size: 1.5rem;
+  border: 1px solid #303F9F;
+  border-radius: 1% 0 0 1%;
+  color: #212121;
+  margin-top: 20px;
+  margin-right: 0;
+  text-align: right;
+}

@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Simple Calculator</title>
+    <link rel="stylesheet" type="text/css" href="simple-calc.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <header id="header" class="">
@@ -10,50 +12,125 @@
     </header><!-- /header -->
     <main>
         <section class="calc">
-            <form action="index_submit" method="get" accept-charset="utf-8">
-                <input type="text" name="input-window" value="0" placeholder=""><br>
-                <input type="button" name="one" value="1">
-                <input type="button" name="two" value="2">
-                <input type="button" name="three" value="3"><br>
-                <input type="button" name="four" value="4">
-                <input type="button" name="five" value="5">
-                <input type="button" name="six" value="6"><br>
-                <input type="button" name="seven" value="7">
-                <input type="button" name="eight" value="8">
-                <input type="button" name="nine" value="9"><br>
-                <input type="button" name="zero" value="0"><br>
-                <input type="button" name="add" value="+">
-                <input type="button" name="subtract" value="-">
-                <input type="button" name="multiply" value="*">
-                <input type="button" name="divide" value="/">
-                <input type="button" name="equals" value="=">
-            </form>
+            <div class="calc-container">
+                <form action="index_submit" method="get" accept-charset="utf-8" id="calc-form">
+                    <input type="text" name="input-window" value="0" placeholder="" class="inputWin">
+                    <input type="button" name="clear" value="X" class="btnClr"><br>
+                    <input type="button" name="one" value="1" class="btnNum">
+                    <input type="button" name="two" value="2" class="btnNum">
+                    <input type="button" name="three" value="3" class="btnNum">
+                    <input type="button" name="add" value="+" class="btnFunc"><br>
+                    <input type="button" name="four" value="4" class="btnNum">
+                    <input type="button" name="five" value="5" class="btnNum">
+                    <input type="button" name="six" value="6" class="btnNum">
+                    <input type="button" name="subtract" value="-" class="btnFunc"><br>
+                    <input type="button" name="seven" value="7" class="btnNum">
+                    <input type="button" name="eight" value="8" class="btnNum">
+                    <input type="button" name="nine" value="9" class="btnNum">
+                    <input type="button" name="multiply" value="*" class="btnFunc"><br>
+                    <input type="button" name="spacer" value="" class="btnNum btnSpacer">
+                    <input type="button" name="zero" value="0" class="btnNum">
+                    <input type="button" name="equals" value="=" class="btnFunc">
+                    <input type="button" name="divide" value="/" class="btnFunc"><br>
+                </form>
+            </div>
         </section>
     </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 <script>
     $(document).ready(function(){
-        var currVal, newVal
+        var displayVal = ""
+        var val1 = ""
+        var val2 = ""
+        var solv = ""
+        var funcVal = ""
+        var funcType = ""
 
         var inputBox = $("input[name=input-window]")
 
-        inputBox.val(0)
+        inputBox.val("")
 
-        $("input[name=three]").on("click", function(){
-            //alert($(this).attr("value"))
-            var btnInput = $(this).attr("value")
+        $("#calc-form").on("click", function(){
+            var btnInput = $("input[type=button]:focus").val()
             getInput(btnInput)
         })
 
         function getInput(btnVal){
-            alert("button clicked: " + btnVal)
-            //var inputWindow = $("input[name=input-window]")
-            //inputWindow.val() + inputWindow.val(btnVal)
-            currVal = inputBox.val()
-            alert("curr val: " + currVal)
-            newVal = currVal.concat(btnVal)
-            alert("new val: " + newVal)
-            inputBox.val(newVal)
+            if (btnVal === "+"){
+                val1 = funcVal
+                displayVal = displayVal.concat(btnVal)
+                funcVal = ""
+                funcType = "add"
+            }
+            else if (btnVal === "-"){
+                val1 = funcVal
+                displayVal = displayVal.concat(btnVal)
+                funcVal = ""
+                funcType = "subtract"
+            }
+            else if (btnVal === "*"){
+                val1 = funcVal
+                displayVal = displayVal.concat(btnVal)
+                funcVal = ""
+                funcType = "multiply"
+            }
+            else if (btnVal === "/"){
+                val1 = funcVal
+                displayVal = displayVal.concat(btnVal)
+                funcVal = ""
+                funcType = "divide"
+            }
+            else if (btnVal === "="){
+                val2 = funcVal
+                switch (funcType){
+                    case "add":
+                        solv = add(val1, val2)
+                        displayVal = displayVal.concat("=" + solv)
+                        break
+                    case "subtract":
+                        solv = subtract(val1, val2)
+                        displayVal = displayVal.concat("=" + solv)
+                        break
+                    case "multiply":
+                        solv = multiply(val1, val2)
+                        displayVal = displayVal.concat("=" + solv)
+                        break
+                    case "divide":
+                        solv = divide(val1, val2)
+                        displayVal = displayVal.concat("=" + solv)
+                        break
+                }
+            }
+            else if (btnVal === "X"){
+                displayVal = ""
+                val1 = ""
+                val2 = ""
+                solv = ""
+                funcVal = ""
+                funcType = ""
+            }
+            else {
+                displayVal = displayVal.concat(btnVal)
+                funcVal = funcVal.concat(btnVal)
+            }
+
+            inputBox.val(displayVal)
+        }
+
+        function add(val1, val2){
+            return Number(val1) + Number(val2)
+        }
+
+        function subtract(val1, val2){
+            return Number(val1) - Number(val2)
+        }
+
+        function multiply(val1, val2){
+            return Number(val1) * Number(val2)
+        }
+
+        function divide(val1, val2){
+            return Number(val1) / Number(val2)
         }
     })
 </script>
