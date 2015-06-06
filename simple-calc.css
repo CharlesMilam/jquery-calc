@@ -1,43 +1,77 @@
 form {
+  font-family: 'Roboto', 'Droid', sans-serif;
   text-align: center;
 }
 header {
   font-family: 'Roboto', 'Droid', sans-serif;
-  color: #212121;
+  color: #E64A19;
   text-align: center;
 }
 .calc-container{
-  background-color: #448AFF;
-  border: 1px solid #303F9F;
+  background-color: #ffffff;
+  border: 1px solid #FF5722;
   border-radius: 1%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   max-width: 50%;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
-.btnNum {
-    font-family: 'Roboto', 'Droid', sans-serif;
+.btn-num {
     font-size: 1.2rem;
     color: #212121;
-    border: 1px solid #303F9F;
-    border-radius: 15%;
+    border: 1px solid #FF5722;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     margin: 0.5rem;
 }
-.btnClr{
-  font-family: 'Roboto', 'Droid', sans-serif;
+.btn-func{
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #FF5722;
+    border-radius: 1%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    margin: 0.5rem;
+    width: 30px;
+}
+.btn-clr{
   font-size: 1.5rem;
-  border: 1px solid #303F9F;
+  border: 1px solid #FF5722;
   border-radius: 0 1% 1% 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   margin-left: -6px;
 }
-.btnSpacer{
+.btn-spacer{
+  margin: 0.5rem 1.2rem 0.5rem 0.5rem;
   visibility: hidden;
 }
-.inputWin{
-  font-family: 'Roboto', 'Droid', sans-serif;
+.input-win{
   font-size: 1.5rem;
-  border: 1px solid #303F9F;
+  border: 1px solid #FF5722;
   border-radius: 1% 0 0 1%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   color: #212121;
   margin-top: 20px;
   margin-right: 0;
+  padding-right: 3px;
   text-align: right;
+}
+.plus {
+    color: #388E3C;
+    border-color: #388E3C;
+}
+.minus {
+    color: #D32F2F;
+    border-color: #D32F2F;
+}
+.multiply {
+    color: #1976D2;
+    border-color: #1976D2;
+}
+.divide {
+    color: #E64A19;
+    border-color: #E64A19;
+}
+.equals {
+    color: #512DA8;
+    border-color: #512DA8;
 }
